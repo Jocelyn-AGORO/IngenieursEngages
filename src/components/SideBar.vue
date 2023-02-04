@@ -18,15 +18,15 @@
              :key="index">
           <ActionButton :action="action"
                         @click="navigateTo(action.path)"
-                        :class="currentAction==action.path ? 'action active' : 'action'" />
+                        :class="currentAction===action.path ? 'action active' : 'action'" />
         </div>
       </div>
   </div>
 </div>
 </template>
 
-<script setup>
-import {defineProps, ref, shallowRef} from "vue";
+<script setup >
+import {defineProps, ref, shallowRef, defineEmits} from "vue";
 import IconAvatar from "./icons/IconAvatar.vue"
 import IconDashboard from "./icons/IconDashboard.vue"
 import IconReferentiel from "./icons/IconReferentiel.vue"
@@ -36,8 +36,8 @@ import ActionButton from "./ActionButton.vue"
 import {useRouter} from "vue-router";
 // user informations
 const props = defineProps(['user'])
-// valeur de user
-// const user = props.user
+// register all events I want to emit
+const emit = defineEmits(['newpage'])
 // current tab ex: profil, validation, referentiel, proposition
 const currentAction = ref('/')
 // each tab label with it path (for the router
@@ -62,9 +62,10 @@ const actions = shallowRef([{
 // when changing view
 const router = useRouter()
 const navigateTo = (path) => {
+  emit('newpage', path)
+  currentAction.value = path
   router.push(path)
-  currentAction.value = path;
-  console.log(currentAction.value)
+  console.log(path)
 }
 </script>
 
@@ -133,6 +134,7 @@ const navigateTo = (path) => {
   height:100vh;
   align-self: flex-start;
   align-items:center;
+  position: static;
 }
 .actions{
   display: flex;

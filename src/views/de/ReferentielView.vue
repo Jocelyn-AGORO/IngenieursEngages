@@ -1,6 +1,6 @@
 <template>
-  <BaseComponent>
-    <SideBar :user="user"/>
+  <BaseComponent @newpage="seePath(e.path)">
+    <SideBar :user="user" />
     <TableList />
   </BaseComponent>
 </template>
@@ -10,6 +10,11 @@ import BaseComponent from "../../components/BaseComponent.vue"
 import TableList from "../../components/TableList.vue"
 import SideBar from "../../components/SideBar.vue"
 const user = "Adrien DEFOSSEZ"
+
+const seePath = (message) => {
+  console.log(message)
+  console.log('Hi')
+}
 </script>
 
 <style scoped>
