@@ -4,10 +4,20 @@
     <div class="button">
       <AddButton @click="addActivite"/>
     </div>
+    <TableHeader />
     <div class="activites" >
       <TableItem :activite="activite"
                   v-for="(activite, index) in activites"
                   :key="index"/>
+      <TableItem :activite="activite"
+                 v-for="(activite, index) in activites"
+                 :key="index"/>
+      <TableItem :activite="activite"
+                 v-for="(activite, index) in activites"
+                 :key="index"/>
+      <TableItem :activite="activite"
+                 v-for="(activite, index) in activites"
+                 :key="index"/>
       <TableItem :activite="activite"
                  v-for="(activite, index) in activites"
                  :key="index"/>
@@ -24,6 +34,8 @@
 import {reactive, ref} from "vue"
 import TableItem from "./TableItem.vue"
 import AddButton from "../components/AddButton.vue"
+import TableHeader from "../components/TableHeader.vue"
+
 const activites = reactive([
   {
     titre: 'Cordée de la réussite',
@@ -67,7 +79,7 @@ const changePage = (page) => {
   line-height: 130%;
   color: #000000;
   margin-left:65px;
-  margin-top:55px;
+  margin-top: 35px;
 }
 .button{
   display: flex;
@@ -86,10 +98,12 @@ const changePage = (page) => {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0px;
   width: 70vw;
+  max-height: 425px;
   margin-left:75px;
   margin-top: 25px;
+  padding: 5px;
+  overflow-y: scroll;
 }
 .pagination{
   display: flex;

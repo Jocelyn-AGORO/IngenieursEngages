@@ -1,5 +1,5 @@
 <template>
-  <BaseComponent @newpage="seePath(e.path)">
+  <BaseComponent @newpage="seePath(e.data)">
     <SideBar :user="user" />
     <TableList />
   </BaseComponent>

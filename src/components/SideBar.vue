@@ -62,10 +62,9 @@ const actions = shallowRef([{
 // when changing view
 const router = useRouter()
 const navigateTo = (path) => {
-  emit('newpage', path)
+  emit('newpage', { data: path })
   currentAction.value = path
   router.push(path)
-  console.log(path)
 }
 </script>
 
@@ -134,7 +133,6 @@ const navigateTo = (path) => {
   height:100vh;
   align-self: flex-start;
   align-items:center;
-  position: static;
 }
 .actions{
   display: flex;
