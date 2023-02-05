@@ -31,14 +31,17 @@
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
-  padding: 0px;
+  padding: 5px;
+  margin-top: 25px;
   margin-left: 75px;
   width: 70vw;
   height: 60px;
   gap: 2px;
   border-bottom: 1.6px solid #DBDBDB;
   font-weight: bold;
-  background-color: #dadada;
+  background-color: #fafafa;
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+  border-radius: 5px;
 }
 .header{
   flex: 1;

@@ -86,7 +86,7 @@ const changePage = (page) => {
   flex-direction: row;
   justify-content: flex-end;
   align-items:center;
-  margin-top:15px;
+  margin-top:5px;
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
@@ -99,9 +99,8 @@ const changePage = (page) => {
   flex-direction: column;
   align-items: flex-start;
   width: 70vw;
-  max-height: 425px;
+  max-height: 375px;
   margin-left:75px;
-  margin-top: 25px;
   padding: 5px;
   overflow-y: scroll;
 }
