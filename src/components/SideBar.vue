@@ -18,7 +18,7 @@
              :key="index">
           <ActionButton :action="action"
                         @click="navigateTo(action.path)"
-                        :class="currentAction===action.path ? 'action active' : 'action'" />
+                        :class="currentAction.startsWith(action.path)  ? 'action active' : 'action'" />
         </div>
       </div>
   </div>
@@ -32,14 +32,17 @@ import IconDashboard from "./icons/IconDashboard.vue"
 import IconReferentiel from "./icons/IconReferentiel.vue"
 import IconValidation  from "./icons/IconValidation.vue"
 import IconProposition from "./icons/IconProposition.vue"
+import IconNotification from "./icons/IconNotification.vue"
 import ActionButton from "./ActionButton.vue"
-import {useRouter} from "vue-router";
+import {useRouter, useRoute} from "vue-router";
 // user informations
 const props = defineProps(['user'])
-// register all events I want to emit
-const emit = defineEmits(['newpage'])
+// when changing view
+const router = useRouter()
+// get routes infos
+const route = useRoute()
 // current tab ex: profil, validation, referentiel, proposition
-const currentAction = ref('/')
+const currentAction = ref(route.path)
 // each tab label with it path (for the router
 const actions = shallowRef([{
   name:"Profil",
@@ -54,15 +57,16 @@ const actions = shallowRef([{
   path: '/validation',
   icon: IconValidation
 },{
-  name:"Proposition",
+  name:"Propositions",
   path: '/proposition',
   icon: IconProposition
+},{
+      name:"Notifications",
+      path: '/notifications',
+      icon: IconNotification
 }]
 )
-// when changing view
-const router = useRouter()
 const navigateTo = (path) => {
-  emit('newpage', { data: path })
   currentAction.value = path
   router.push(path)
 }
@@ -150,11 +154,11 @@ const navigateTo = (path) => {
   align-items: center;
   justify-content:center;
   padding: 0px;
+  margin-top: 10px;
   width: 158.29px;
-  height: 195.94px;
-  flex: none;
-  order: 1;
-  flex-grow: 0;
+  flex: 1;
+  /*order: 1;*/
+  /*flex-grow: 0;*/
 }
 .active{
   background: linear-gradient(95.19deg, #6976EF -7.53%, rgba(64, 71, 234, 0.87) 52.7%, rgba(212, 61, 237, 0.34375) 111.1%);

@@ -35,6 +35,7 @@ import {reactive, ref} from "vue"
 import TableItem from "./TableItem.vue"
 import AddButton from "../components/AddButton.vue"
 import TableHeader from "../components/TableHeader.vue"
+import {useRouter} from "vue-router"
 
 const activites = reactive([
   {
@@ -58,8 +59,9 @@ const activites = reactive([
 ])
 const pages = reactive([1, 2, 3, 4, 5, 6, 7, 8, 9])
 const currentPage = ref(1);
+const router = useRouter()
 const addActivite = () => {
-  console.log("Changing Route")
+  router.push("/activite")
 }
 const changePage = (page) => {
   currentPage.value = page

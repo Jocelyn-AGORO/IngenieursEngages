@@ -15,7 +15,7 @@ const router = createRouter({
       name: 'referentiel',
       component: ReferentielView
     },{
-      path: '/activite',
+      path: '/referentiel/activite',
       name: 'activite',
       component: CreateActiviteView
 

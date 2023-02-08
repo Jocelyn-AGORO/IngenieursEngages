@@ -12,9 +12,14 @@ const getCurrentPath = (path) => {
 </script>
 
 <template>
-      <DashboardView v-cloak v-if="currentPath === '/' "  />
-      <ReferentielView v-cloak v-if="currentPath === '/referentiel' " />
-      <CreateActivityView v-cloak v-if="currentPath === '/activite' " />
+      <!--v-if="currentPath === '/' "-->
+<!--      <DashboardView v-cloak />-->
+      <!-- v-if="currentPath === '/referentiel' " -->
+<!--      <ReferentielView v-cloak />-->
+      <!--v-if="currentPath === '/activite' "-->
+<!--      <CreateActivityView v-cloak />-->
+<!--      <RouterLink to="/"></RouterLink>-->
+      <RouterView />
 </template>
 
 <style scoped>
